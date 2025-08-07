@@ -1,0 +1,8 @@
+services:
+    app:
+        build: .
+        volumes:
+          - .:/srv/http/app
+        ports:
+          - 3000:3000
+          - 9229:9229
