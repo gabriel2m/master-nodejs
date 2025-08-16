@@ -1,31 +1,17 @@
-import { readFile } from "fs";
-import { createServer } from "http";
-import { URLSearchParams } from "url";
+import express from 'express';
+import { faker } from "@faker-js/faker";
 
-const server = createServer((request, response) => {
-    console.log('Request: ', request.url);
-
-    switch (true) {
-        case request.url == '/create-user' && request.method == 'POST':
-            request
-                .toArray()
-                .then((body) => {
-                    const data = new URLSearchParams(Buffer.concat(body).toString());
-                    console.log('Nome:', data.get('name'));
-
-                    response
-                        .writeHead(301, { location: '/' })
-                        .end();
-                });
-            break;
-
-        default:
-            readFile('./views/home.html', (_, body) => response.end(body));
-            break;
-    }
-
-});
-
-server.listen(process.env.APP_PORT);
-
-process.on('SIGTERM', () => process.exit(0));
+express()
+    .use('/users', (_request, response) => {
+        response.send(
+            faker.helpers.multiple(() => ({
+                id: faker.number.int(),
+                name: faker.internet.username(),
+                email: faker.internet.email()
+            }))
+        );
+    })
+    .use('/', (_request, response) => {
+        response.send('Hello');
+    })
+    .listen(process.env.APP_PORT);
