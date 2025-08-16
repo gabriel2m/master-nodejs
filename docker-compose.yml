@@ -1,8 +1,9 @@
 services:
     app:
         build: .
+        env_file: .env
         volumes:
           - .:/srv/http/app
         ports:
-          - 3000:3000
-          - 9229:9229
+          - ${APP_PORT}:${APP_PORT}
+          - ${DEBUG_PORT}:${DEBUG_PORT}

@@ -26,6 +26,6 @@ const server = createServer((request, response) => {
 
 });
 
-server.listen(3000);
+server.listen(process.env.APP_PORT);
 
 process.on('SIGTERM', () => process.exit(0));
