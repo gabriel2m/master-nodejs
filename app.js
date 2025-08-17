@@ -1,17 +1,10 @@
 import express from 'express';
-import { faker } from "@faker-js/faker";
+import path from './helpers/path.js';
+import routes from './routes.js';
+import status from 'http-status';
 
 express()
-    .use('/users', (_request, response) => {
-        response.send(
-            faker.helpers.multiple(() => ({
-                id: faker.number.int(),
-                name: faker.internet.username(),
-                email: faker.internet.email()
-            }))
-        );
-    })
-    .use('/', (_request, response) => {
-        response.send('Hello');
-    })
+    .use(express.static(path.base('public')))
+    .use(routes)
+    .use((_request, response) => response.sendStatus(status.NOT_FOUND))
     .listen(process.env.APP_PORT);
