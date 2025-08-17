@@ -1,5 +1,4 @@
 # Node.js - The Complete Guide
-
 [**Node.js - The Complete Guide**](https://www.udemy.com/course/nodejs-the-complete-guide/) course assignments.
 
 # Requirements
@@ -8,7 +7,6 @@
 - [Make](https://www.gnu.org/software/make/manual/make.html)
 
 # Install
-
 ```sh
 make install
 ```
