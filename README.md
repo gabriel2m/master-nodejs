@@ -35,3 +35,7 @@ Open [.env.example](https://github.com/gabriel2m/nodejs-complete-guide/blob/mast
 - [3](https://github.com/gabriel2m/nodejs-complete-guide/commit/68cf0de0fb7ac139a16c107d4ce1fb2ae0025832):
     - Create an Express.js app which serves two HTML files (of your choice/with your content) for "/" and "/users".
     - Add some static (.js or .css) files to your project that should be required by at least one of your HTML files.
+
+- [4](https://github.com/gabriel2m/nodejs-complete-guide/commit/4dbe4b4b8775dd33202838601b551a3f3153a156):
+    - Create a route "/" with a <form> that allows users to input their name
+    - Create a route "/users" that outputs an <ul> with the user names (or some error text)
