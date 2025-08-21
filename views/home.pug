@@ -1,0 +1,9 @@
+extends layout.pug
+
+block vars
+  - const title = 'Home'
+
+block content
+  form(action="users", method="POST")
+    input(type="text", name="name", class="border p-1")
+    button(type="submit", class="border p-1 hover:bg-gray-300 hover:cursor-pointer") Send

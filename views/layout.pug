@@ -1,0 +1,33 @@
+block vars
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{title} | App
+    block header
+      script(src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4")
+      link(rel="stylesheet", href='/css/app.css')
+
+  body.px-4
+    header
+      nav.py-2
+        ul.flex.gap-2
+          - 
+            const links = [
+              { 
+                url: '/',
+                label: 'Home'
+              },
+              { 
+                url: '/users',
+                label: 'Users'
+              },
+            ]
+
+          each link in links
+            li
+              a(href=`${link.url}`, class="text-blue-500 underline hover:no-underline") #{link.label}
+    block content
+    block footer
+      script(src='/js/app.js')

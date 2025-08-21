@@ -1,0 +1,12 @@
+extends layout.pug
+
+block vars
+  - const title = 'Users'
+
+block content
+  h1 Users:
+  ul
+    each user in users
+      li= '- ' + user.name
+    else
+      li There are no users
