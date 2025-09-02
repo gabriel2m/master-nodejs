@@ -39,3 +39,6 @@ Open [.env.example](https://github.com/gabriel2m/nodejs-complete-guide/blob/mast
 - [4](https://github.com/gabriel2m/nodejs-complete-guide/commit/4dbe4b4b8775dd33202838601b551a3f3153a156):
     - Create a route "/" with a <form> that allows users to input their name
     - Create a route "/users" that outputs an <ul> with the user names (or some error text)
+
+- [5](https://github.com/gabriel2m/nodejs-complete-guide/commit/d85da42c49424f747e89abe31259c77316d7f671):
+    - Save user on session when logging in
