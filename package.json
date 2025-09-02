@@ -7,15 +7,19 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "http-status": "^2.1.0",
+    "mongoose": "^8.18.0",
     "pug": "^3.0.3"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.9.0",
     "@prettier/plugin-pug": "^3.4.2",
     "@types/express": "^5.0.3",
+    "@types/express-session": "^1.18.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.6",
     "nodemon": "^3.1.10",

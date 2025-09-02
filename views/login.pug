@@ -1,0 +1,9 @@
+extends layout.pug
+include /mixins/user-form
+
+block vars
+    - const title = "Log In";
+    - const active = "/login";
+
+block content
+    +userForm(submitLabel=title, action="/login")

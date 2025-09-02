@@ -1,13 +1,13 @@
-import { Router } from 'express';
-
-const data = {
-    users: []
-};
+import { Router } from "express";
+import login from "./controllers/login.js";
+import user from "./controllers/user.js";
+import auth from "./middlewares/auth.js";
+import guest from "./middlewares/guest.js";
 
 export default Router()
-    .get('/users', (_request, response) => response.render('users', data))
-    .post('/users', (request, response) => {
-        data.users.push(request.body);
-        response.redirect('/users');
-    })
-    .get('/', (_request, response) => response.render('home'));
+    .get("/login", guest, login.create)
+    .post("/login", guest, login.store)
+    .post("/logout", auth, login.destroy)
+    .get("/signup", guest, user.create)
+    .post("/signup", guest, user.store)
+    .get("/", (_request, response) => response.render("home"));

@@ -1,9 +1,28 @@
 services:
-    app:
-        build: .
-        env_file: .env
-        volumes:
-          - .:/srv/http/app
-        ports:
-          - ${APP_PORT}:${APP_PORT}
-          - ${DEBUG_PORT}:${DEBUG_PORT}
+  app:
+    build: .
+    env_file: .env
+    volumes:
+      - .:/srv/http/app
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+      - ${DEBUG_PORT}:${DEBUG_PORT}
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+    volumes:
+      - db:/data/db
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - ${ME_PORT}:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: ${MONGODB_URL}
+      ME_CONFIG_BASICAUTH: false
+
+volumes:
+  db:

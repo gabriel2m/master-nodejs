@@ -1,0 +1,17 @@
+mixin textInput
+    -
+        const label = attributes.label ?? attributes.name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        delete attributes.label;
+        attributes = {
+            id: attributes.name,
+            type: "text",
+            ...attributes,
+            class: [attributes.class, "border p-1"].join(' '),
+        }
+    div
+        label(for=attributes.name)= label
+        br
+        input&attributes(attributes)
+        - const error = errors[attributes.name]?.message;
+        if error
+            p.text-red-600= error

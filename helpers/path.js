@@ -7,7 +7,7 @@ export default {
     base(...paths) {
         return this.join(this.root, ...paths);
     },
-    view(view) {
-        return this.base(`views/${view}.html`);
-    }
+    view(view = null) {
+        return this.base("views", view ? `${view}.html` : "");
+    },
 };

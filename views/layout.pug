@@ -1,33 +1,67 @@
 block vars
 doctype html
 html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title #{title} | App
-    block header
-      script(src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4")
-      link(rel="stylesheet", href='/css/app.css')
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{ title } | App
+        block header
+            script(src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4")
+            link(rel="stylesheet", href="/css/app.css")
 
-  body.px-4
-    header
-      nav.py-2
-        ul.flex.gap-2
-          - 
-            const links = [
-              { 
-                url: '/',
-                label: 'Home'
-              },
-              { 
-                url: '/users',
-                label: 'Users'
-              },
-            ]
+    body.px-4
+        header
+            nav.py-2
+                ul.flex.gap-2
+                    -
+                        const links = [
+                          { 
+                            url: "/",
+                            label: "Home"
+                          },
+                          { 
+                            url: "/login",
+                            label: "Log In",
+                            show: !user
+                          },
+                          { 
+                            url: "/signup",
+                            label: "Sign Up",
+                            show: !user
+                          },
+                          { 
+                            url: "/logout",
+                            label: "Log Out",
+                            post: true,
+                            show: !!user
+                          },
+                        ]
 
-          each link in links
-            li
-              a(href=`${link.url}`, class="text-blue-500 underline hover:no-underline") #{link.label}
-    block content
-    block footer
-      script(src='/js/app.js')
+                    each link in links
+                        -
+                            link = {
+                                show: true,
+                                post: false,
+                                ...link,
+                            }
+
+                        if link.show
+                            li
+                                if link.post
+                                    form(action=link.url, method="post")
+                                        button.underline.text-blue-500.cursor-pointer(
+                                            type="submit",
+                                            class="hover:no-underline"
+                                        )= link.label
+                                else
+                                    a(
+                                        href=link.url,
+                                        class=link.url === active ? "" : "underline hover:no-underline text-blue-500"
+                                    )= link.label
+        main
+            each message in flash
+                p= message
+            block content
+        footer
+            block footer
+                script(src="/js/app.js")
