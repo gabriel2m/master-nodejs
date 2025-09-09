@@ -12,6 +12,6 @@ mixin textInput
         label(for=attributes.name)= label
         br
         input&attributes(attributes)
-        - const error = errors[attributes.name]?.message;
+        - const error = errors[attributes.name];
         if error
             p.text-red-600= error

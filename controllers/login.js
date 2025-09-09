@@ -8,7 +8,7 @@ export default {
 
     store(req, res) {
         const wrong = () => {
-            req.session.flash.push("Wrong credentials.");
+            req.session.flash.push("Invalid credentials.");
             res.redirect("/login");
         };
 
