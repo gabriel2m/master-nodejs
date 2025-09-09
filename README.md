@@ -42,3 +42,6 @@ Open [.env.example](https://github.com/gabriel2m/nodejs-complete-guide/blob/mast
 
 - [5](https://github.com/gabriel2m/nodejs-complete-guide/commit/d85da42c49424f747e89abe31259c77316d7f671):
     - Save user on session when logging in
+
+- [6](https://github.com/gabriel2m/nodejs-complete-guide/commit/123b7aa3c27252f8a3d3c3e8e6f83d42c4a67806):
+    - Validate login using [express-validator](https://express-validator.github.io/docs)
