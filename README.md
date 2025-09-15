@@ -45,3 +45,6 @@ Open [.env.example](https://github.com/gabriel2m/nodejs-complete-guide/blob/mast
 
 - [6](https://github.com/gabriel2m/nodejs-complete-guide/commit/123b7aa3c27252f8a3d3c3e8e6f83d42c4a67806):
     - Validate login using [express-validator](https://express-validator.github.io/docs)
+
+## Certificate
+![Course Certificate](https://github.com/gabriel2m/nodejs-complete-guide/blob/master/certificate.jpg?raw=true)
