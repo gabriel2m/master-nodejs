@@ -1,22 +1,22 @@
 # Node.js - The Complete Guide
 [**Node.js - The Complete Guide**](https://www.udemy.com/course/nodejs-the-complete-guide/) course assignments.
 
-# Requirements
+## Requirements
 - [Docker](https://www.docker.com/)
 - [Docker compose](https://docs.docker.com/compose/)
 - [Make](https://www.gnu.org/software/make/manual/make.html)
 
-# Install
+## Install
 ```sh
 make install
 ```
 
-# Run
+## Run
 ```sh
 make run
 ```
 
-# Config
+## Config
 Open [.env.example](https://github.com/gabriel2m/nodejs-complete-guide/blob/master/.env.example) to see all available configs, change their values via `.env` file.
 
 ## Assignments
